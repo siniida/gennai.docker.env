@@ -5,3 +5,9 @@ build:
         name: coffee-script/csfn install
         code: |
           npm install -g coffee-script csfn
+    - script:
+        name: compile template
+        code: |
+          csfn gennai.coffee > gennai.template
+          cat gennai.template
+          pwd
