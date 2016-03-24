@@ -1,8 +1,9 @@
 box: node
 build:
-  - script:
-      name: echo nodejs information
-      code: |
-        echo "node version $(node -v) running"
-        echo "npm version $(npm -v) running"
+  steps:
+    - script:
+        name: echo nodejs information
+        code: |
+          echo "node version $(node -v) running"
+          echo "npm version $(npm -v) running"
 
