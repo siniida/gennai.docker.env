@@ -4,7 +4,7 @@ build:
     - script:
         name: coffee-script/csfn install
         code: |
-          npm install -g coffee-script csfn awscli
+          npm install -g coffee-script csfn
     - script:
         name: compile template
         code: |
