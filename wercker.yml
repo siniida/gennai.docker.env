@@ -4,10 +4,17 @@ build:
     - script:
         name: coffee-script/csfn install
         code: |
-          npm install -g coffee-script csfn
+          npm install -g coffee-script csfn awscli
     - script:
         name: compile template
         code: |
-          csfn gennai.coffee > gennai.template
-          cat gennai.template
-          pwd
+          mkdir templates
+          csfn gennai.coffee > templates/gennai.template
+deploy:
+  steps:
+    -s s3sync:
+      source_dir: templates/
+      delete_removed: false
+      bucket-url: $AWS_BUCKET_URL
+      key-id: $AWS_ACCESS_KEY_ID
+      key-secret: $AWS_SECRET_ACCESS_KEY
