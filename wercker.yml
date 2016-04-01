@@ -12,7 +12,7 @@ build:
           csfn gennai.coffee > templates/gennai.template
 deploy:
   steps:
-    -s s3sync:
+    -s3sync:
       source_dir: templates/
       delete_removed: false
       bucket-url: $AWS_BUCKET_URL
